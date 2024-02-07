@@ -1,0 +1,895 @@
+<config>
+	<app>
+		<title>2D Template</title>
+		<organization>punto 16</organization>
+	<frcap value = "16"/>
+	</app>
+
+	<renderer>
+		<vsync value="true"/>
+		<font pathfile="Assets/Fonts/ARCADECLASSIC.TTF" size="25"/>
+	</renderer>
+
+	<window>
+		<resolution width="1024" height="768" scale="2"/>
+		<fullscreen value="false"/>
+		<borderless value="false"/>
+		<resizable value="false"/>
+		<fullscreen_window value="false"/>
+	</window>
+
+	<audio>
+		<music volume="128"/>
+		<fx volume="128"/>
+	</audio>
+	<Hud>
+		<hudbackground texturepath="Assets/Textures/GUI/guibackground.png"/>
+		<hudbuttonsconfig texturepath="Assets/Textures/GUI/guibuttons_config.png"/>
+		<hudbuttonstitle texturepath="Assets/Textures/GUI/guibuttons_titlescreen.png" />
+		<hudbuttonsingame texturepath="Assets/Textures/GUI/guibuttons_ingamepause.png" />
+		<collectibles texturepath="Assets/Textures/collectibles.png"/>
+		<clickfx path="Assets/Audio/Fx/clickfx.wav"/>
+		<mousebyfx path="Assets/Audio/Fx/mousebyfx.wav"/>
+	</Hud>
+	<!-- L02: DONE: Add an element for the entity manager and add the player parameters -->
+	<sceneIntro>
+		<screenIntro texturepath="Assets/Textures/screenIntro.png"/>
+		<loseScreen texturepath="Assets/Textures/LoseScreen.png"/>
+		<winScreen texturepath="Assets/Textures/VictoryScreen.png"/>
+		<creditsScreen texturepath="Assets/Textures/credits.png"/>
+	</sceneIntro>
+	<scene>
+		<music path="Assets/Audio/Music/music.ogg"/>
+		<whiteFont texturepath="Assets/Fonts/sprite_font_white.png"/>
+		<blackFont texturepath="Assets/Fonts/sprite_font_black.png"/>
+		<player x="150" y="672" texturepath="Assets/Textures/player1.png">
+			<idleAnim>
+				<pushback x="0" y="0" w="30" h="30"/>
+			</idleAnim>
+			<jumpLeftAnim>
+				<pushback x="30" y="0" w="30" h="30"/> 
+			</jumpLeftAnim>
+			<jumpRightAnim>
+				<pushback x="60" y="0" w="30" h="30"/>
+			</jumpRightAnim>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="90" y="0" w="30" h="30"/>
+				<pushback x="120" y="0" w="30" h="30"/>
+				<pushback x="0" y="30" w="30" h="30"/>
+				<pushback x="120" y="0" w="30" h="30"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="30" y="30" w="30" h="30"/>
+				<pushback x="60" y="30" w="30" h="30"/>
+				<pushback x="90" y="30" w="30" h="30"/>
+				<pushback x="60" y="30" w="30" h="30"/>
+			</walkRightAnim>
+			<deadAnim>
+				<pushback x="120" y="30" w="30" h="30"/>
+			</deadAnim>
+		</player>
+		<!--LEVEL 1 ENEMIES-->
+		<terrestreEnemy x="500" y="672" level="1" texturepath="Assets/Textures/cocodrileEnemy.png">
+			<idleAnimLeft>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnimLeft>
+			<idleAnimRight>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</idleAnimRight>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="128" y="0" w="32" h="32"/>
+				<pushback x="160" y="0" w="32" h="32"/>
+				<pushback x="192" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="64" w="32" h="32"/>
+				<pushback x="64" y="64" w="32" h="32"/>
+				<pushback x="96" y="64" w="32" h="32"/>
+				<pushback x="128" y="64" w="32" h="32"/>
+				<pushback x="160" y="64" w="32" h="32"/>
+				<pushback x="192" y="64" w="32" h="32"/>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="96" w="32" h="32"/>
+				<pushback x="64" y="96" w="32" h="32"/>
+				<pushback x="96" y="96" w="32" h="32"/>
+				<pushback x="128" y="96" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="192" y="96" w="32" h="32"/>
+			</deadAnim>
+		</terrestreEnemy>
+		<terrestreEnemy x="715" y="500" level="1" texturepath="Assets/Textures/cocodrileEnemy.png">
+			<idleAnimLeft>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnimLeft>
+			<idleAnimRight>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</idleAnimRight>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="128" y="0" w="32" h="32"/>
+				<pushback x="160" y="0" w="32" h="32"/>
+				<pushback x="192" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="64" w="32" h="32"/>
+				<pushback x="64" y="64" w="32" h="32"/>
+				<pushback x="96" y="64" w="32" h="32"/>
+				<pushback x="128" y="64" w="32" h="32"/>
+				<pushback x="160" y="64" w="32" h="32"/>
+				<pushback x="192" y="64" w="32" h="32"/>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="96" w="32" h="32"/>
+				<pushback x="64" y="96" w="32" h="32"/>
+				<pushback x="96" y="96" w="32" h="32"/>
+				<pushback x="128" y="96" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="192" y="96" w="32" h="32"/>
+			</deadAnim>
+		</terrestreEnemy>
+		<flyingEnemy x="1400" y="300" level="1" texturepath="Assets/Textures/mosquitoEnemy.png">
+			<idleAnim>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnim>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="0" y="32" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="128" y="0" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="160" y="0" w="32" h="32"/>
+			</deadAnim>
+		</flyingEnemy>
+		<!--LEVEL 2 ENEMIES-->
+		<terrestreEnemy x="400" y="672" level="2" texturepath="Assets/Textures/cocodrileEnemy.png">
+			<idleAnimLeft>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnimLeft>
+			<idleAnimRight>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</idleAnimRight>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="128" y="0" w="32" h="32"/>
+				<pushback x="160" y="0" w="32" h="32"/>
+				<pushback x="192" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="64" w="32" h="32"/>
+				<pushback x="64" y="64" w="32" h="32"/>
+				<pushback x="96" y="64" w="32" h="32"/>
+				<pushback x="128" y="64" w="32" h="32"/>
+				<pushback x="160" y="64" w="32" h="32"/>
+				<pushback x="192" y="64" w="32" h="32"/>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="96" w="32" h="32"/>
+				<pushback x="64" y="96" w="32" h="32"/>
+				<pushback x="96" y="96" w="32" h="32"/>
+				<pushback x="128" y="96" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="192" y="96" w="32" h="32"/>
+			</deadAnim>
+		</terrestreEnemy>
+		<terrestreEnemy x="512" y="128" level="2" texturepath="Assets/Textures/cocodrileEnemy.png">
+			<idleAnimLeft>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnimLeft>
+			<idleAnimRight>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</idleAnimRight>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="128" y="0" w="32" h="32"/>
+				<pushback x="160" y="0" w="32" h="32"/>
+				<pushback x="192" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="64" w="32" h="32"/>
+				<pushback x="64" y="64" w="32" h="32"/>
+				<pushback x="96" y="64" w="32" h="32"/>
+				<pushback x="128" y="64" w="32" h="32"/>
+				<pushback x="160" y="64" w="32" h="32"/>
+				<pushback x="192" y="64" w="32" h="32"/>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="96" w="32" h="32"/>
+				<pushback x="64" y="96" w="32" h="32"/>
+				<pushback x="96" y="96" w="32" h="32"/>
+				<pushback x="128" y="96" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="192" y="96" w="32" h="32"/>
+			</deadAnim>
+		</terrestreEnemy>
+		<terrestreEnemy x="1110" y="126" level="2" texturepath="Assets/Textures/cocodrileEnemy.png">
+			<idleAnimLeft>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnimLeft>
+			<idleAnimRight>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</idleAnimRight>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="128" y="0" w="32" h="32"/>
+				<pushback x="160" y="0" w="32" h="32"/>
+				<pushback x="192" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="64" w="32" h="32"/>
+				<pushback x="64" y="64" w="32" h="32"/>
+				<pushback x="96" y="64" w="32" h="32"/>
+				<pushback x="128" y="64" w="32" h="32"/>
+				<pushback x="160" y="64" w="32" h="32"/>
+				<pushback x="192" y="64" w="32" h="32"/>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="96" w="32" h="32"/>
+				<pushback x="64" y="96" w="32" h="32"/>
+				<pushback x="96" y="96" w="32" h="32"/>
+				<pushback x="128" y="96" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="192" y="96" w="32" h="32"/>
+			</deadAnim>
+		</terrestreEnemy>
+		<terrestreEnemy x="1570" y="126" level="2" texturepath="Assets/Textures/cocodrileEnemy.png">
+			<idleAnimLeft>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnimLeft>
+			<idleAnimRight>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</idleAnimRight>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="128" y="0" w="32" h="32"/>
+				<pushback x="160" y="0" w="32" h="32"/>
+				<pushback x="192" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="64" w="32" h="32"/>
+				<pushback x="64" y="64" w="32" h="32"/>
+				<pushback x="96" y="64" w="32" h="32"/>
+				<pushback x="128" y="64" w="32" h="32"/>
+				<pushback x="160" y="64" w="32" h="32"/>
+				<pushback x="192" y="64" w="32" h="32"/>
+				<pushback x="0" y="64" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="96" w="32" h="32"/>
+				<pushback x="64" y="96" w="32" h="32"/>
+				<pushback x="96" y="96" w="32" h="32"/>
+				<pushback x="128" y="96" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="192" y="96" w="32" h="32"/>
+			</deadAnim>
+		</terrestreEnemy>
+		<flyingEnemy x="224" y="272" level="2" texturepath="Assets/Textures/mosquitoEnemy.png">
+			<idleAnim>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnim>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="0" y="32" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="128" y="0" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="160" y="0" w="32" h="32"/>
+			</deadAnim>
+		</flyingEnemy>
+		<flyingEnemy x="928" y="64" level="2" texturepath="Assets/Textures/mosquitoEnemy.png">
+			<idleAnim>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</idleAnim>
+			<walkLeftAnim speed="0.1f" loop="true">
+				<pushback x="32" y="0" w="32" h="32"/>
+				<pushback x="64" y="0" w="32" h="32"/>
+				<pushback x="96" y="0" w="32" h="32"/>
+				<pushback x="0" y="0" w="32" h="32"/>
+			</walkLeftAnim>
+			<walkRightAnim speed="0.1f" loop="true">
+				<pushback x="32" y="32" w="32" h="32"/>
+				<pushback x="64" y="32" w="32" h="32"/>
+				<pushback x="96" y="32" w="32" h="32"/>
+				<pushback x="0" y="32" w="32" h="32"/>
+			</walkRightAnim>
+			<attackLeftAnim speed="0.1f" loop="true">
+				<pushback x="128" y="0" w="32" h="32"/>
+			</attackLeftAnim>
+			<attackRightAnim speed="0.1f" loop="true">
+				<pushback x="128" y="32" w="32" h="32"/>
+			</attackRightAnim>
+			<deadAnim>
+				<pushback x="160" y="0" w="32" h="32"/>
+			</deadAnim>
+		</flyingEnemy>
+		<!--LEVEL 1 ITEMS-->
+			<!--COINS (itemType 1)-->
+		<item x="332" y="675" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="300" y="515" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="420" y="515" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1200" y="300" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1456" y="392" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1465" y="410" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1593" y="446" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1680" y="450" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1813" y="400" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1645" y="110" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1422" y="200" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+			  <!--HEARTS (itemType 0)-->
+		<item x="1934" y="140" level="1" itemType="0" texturepath="Assets/Textures/hearts.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="11" h="9"/>
+			</idleAnim>
+		</item>
+		<item x="972" y="460" level="1" itemType="0" texturepath="Assets/Textures/hearts.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="11" h="9"/>
+			</idleAnim>
+		</item>
+			<!--CHECKPOINTS (itemType 2)-->
+		<item x="780" y="370" level ="1" itemType ="2" texturepath="Assets/Textures/checkpoints.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="23" h="28"/>
+			</idleAnim>
+			<triggerAnim speed="0.1f" loop="false">
+				<pushback x="23" y ="0" w="23" h="28"/>
+				<pushback x="46" y ="0" w="23" h="28"/>
+				<pushback x="69" y ="0" w="23" h="28"/>
+				<pushback x="92" y ="0" w="23" h="28"/>
+				<pushback x="0" y ="28" w="23" h="28"/>
+				<pushback x="23" y ="28" w="23" h="28"/>
+			</triggerAnim>
+			<takenAnim speed="0.1f" loop="true">
+				<pushback x="46" y ="28" w="23" h="28"/>
+				<pushback x="69" y ="28" w="23" h="28"/>
+				<pushback x="92" y ="28" w="23" h="28"/>
+				<pushback x="69" y ="28" w="23" h="28"/>
+			</takenAnim>
+		</item>
+		<!--LEVEL 2 ITEMS-->
+			<!--COINS (itemType 1)-->
+		<item x="812" y="524" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1026" y="500" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1132" y="556" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1580" y="556" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1756" y="362" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1098" y="324" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="366" y="328" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="108" y="266" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="268" y="138" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="558" y="132" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+		<item x="1286" y="134" level="2" itemType="1" texturepath="Assets/Textures/coins.png">
+			<takenSprite>
+				<pushback x="128" y="0" w="7" h="9"/>
+			</takenSprite>
+			<idleAnim>
+				<pushback x="0" y="0" w="15" h="16"/>
+			</idleAnim>
+			<spinAnim speed="0.1f" loop="true">
+				<pushback x="0" y="0" w="15" h="16"/>
+				<pushback x="16" y="0" w="15" h="16"/>
+				<pushback x="32" y="0" w="15" h="16"/>
+				<pushback x="48" y="0" w="15" h="16"/>
+				<pushback x="64" y="0" w="15" h="16"/>
+				<pushback x="80" y="0" w="15" h="16"/>
+				<pushback x="96" y="0" w="15" h="16"/>
+				<pushback x="112" y="0" w="15" h="16"/>
+			</spinAnim>
+		</item>
+			<!--HEARTS (itemType 0)-->
+		<item x="1082" y="654" level="2" itemType="0" texturepath="Assets/Textures/hearts.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="11" h="9"/>
+			</idleAnim>
+		</item>
+		<item x="1772" y="560" level="2" itemType="0" texturepath="Assets/Textures/hearts.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="11" h="9"/>
+			</idleAnim>
+		</item>
+		<item x="366" y="238" level="2" itemType="0" texturepath="Assets/Textures/hearts.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="11" h="9"/>
+			</idleAnim>
+		</item>
+		<item x="58" y="340" level="2" itemType="0" texturepath="Assets/Textures/hearts.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="11" h="9"/>
+			</idleAnim>
+		</item>
+			<!--CHECKPOINTS (itemType 2)-->
+		<item x="1760" y="371" level ="2" itemType ="2" texturepath="Assets/Textures/checkpoints.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="23" h="28"/>
+			</idleAnim>
+			<triggerAnim speed="0.1f" loop="false">
+				<pushback x="23" y ="0" w="23" h="28"/>
+				<pushback x="46" y ="0" w="23" h="28"/>
+				<pushback x="69" y ="0" w="23" h="28"/>
+				<pushback x="92" y ="0" w="23" h="28"/>
+				<pushback x="0" y ="28" w="23" h="28"/>
+				<pushback x="23" y ="28" w="23" h="28"/>
+			</triggerAnim>
+			<takenAnim speed="0.1f" loop="true">
+				<pushback x="46" y ="28" w="23" h="28"/>
+				<pushback x="69" y ="28" w="23" h="28"/>
+				<pushback x="92" y ="28" w="23" h="28"/>
+				<pushback x="69" y ="28" w="23" h="28"/>
+			</takenAnim>
+		</item>
+		<item x="712" y="307" level ="2" itemType ="2" texturepath="Assets/Textures/checkpoints.png">
+			<idleAnim>
+				<pushback x="0" y ="0" w="23" h="28"/>
+			</idleAnim>
+			<triggerAnim speed="0.1f" loop="false">
+				<pushback x="23" y ="0" w="23" h="28"/>
+				<pushback x="46" y ="0" w="23" h="28"/>
+				<pushback x="69" y ="0" w="23" h="28"/>
+				<pushback x="92" y ="0" w="23" h="28"/>
+				<pushback x="0" y ="28" w="23" h="28"/>
+				<pushback x="23" y ="28" w="23" h="28"/>
+			</triggerAnim>
+			<takenAnim speed="0.1f" loop="true">
+				<pushback x="46" y ="28" w="23" h="28"/>
+				<pushback x="69" y ="28" w="23" h="28"/>
+				<pushback x="92" y ="28" w="23" h="28"/>
+				<pushback x="69" y ="28" w="23" h="28"/>
+			</takenAnim>
+		</item>
+		<map>
+			<mapfolder path="Assets/Maps/"/>
+			<mapfile path="Assets/Maps/Level1.tmx"/>
+			<mapfile path="Assets/Maps/Level2.tmx"/>
+		</map>
+	</scene>
+
+</config>
