@@ -30,7 +30,13 @@ public:
 		return true;
 	}
 
-	virtual bool Update()
+	virtual bool Update(float dt)
+	{
+		return true;
+	}
+
+	//similar to update, but when entity is deactivated but not its image
+	virtual bool OnlyDraw()
 	{
 		return true;
 	}
@@ -79,6 +85,11 @@ public:
 	virtual void Draw()
 	{
 
+	};;
+
+	virtual void DestroyPhysBody()
+	{
+
 	};
 
 public:
@@ -86,6 +97,7 @@ public:
 	std::string name;
 	EntityType type;
 	bool isEnabled = true;
+	bool onlyDraw = false;
 	pugi::xml_node parameters;
 
 	// Possible properties, it depends on how generic we

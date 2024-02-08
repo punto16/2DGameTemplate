@@ -8,6 +8,8 @@
 #include "ModuleAudio.h"
 #include "ModulePhysics.h"
 #include "ModulePathfinding.h"
+#include "ModuleEntityManager.h"
+#include "ModuleMap.h"
 
 //Constructor
 App::App(int argc, char* args[]) : argc(argc), args(args)
@@ -21,8 +23,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	audio = new Audio(true);
 	physics = new Physics(true);
 	//scene_manager = new SceneManager(true);
-	//entity_manager = new EntityManager(false);
-	//map = new Map(false);
+	entity_manager = new EntityManager(false);
+	map = new Map(false);
 	//gui_manager = new GuiManager(true);
 	//fade = new ModuleFadeToBlack(true);
 	//fonts = new Fonts(true);
@@ -37,8 +39,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(physics);
 	AddModule(pathfinding);
 	//AddModule(scene_manager);
-	//AddModule(entity_manager);
-	//AddModule(map);
+	AddModule(entity_manager);
+	AddModule(map);
 	//AddModule(fonts);
 
 	////hud and gui must be on top of everything

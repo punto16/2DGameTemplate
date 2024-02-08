@@ -56,6 +56,18 @@ bool EntityManager::CleanUp()
 	entity_list.clear();
 	entity_list.reverse();
 
+	//dont forget that onlydraw entities still exist even if we cleanup-ed its physbody
+	drawonly_entity_list.reverse();
+
+	for (auto& item : drawonly_entity_list)
+	{
+		ret = item->CleanUp();
+		if (ret == false) return false;
+		RELEASE(item);
+	}
+	drawonly_entity_list.clear();
+	drawonly_entity_list.reverse();
+
 	return ret;
 }
 
@@ -73,7 +85,7 @@ Entity* EntityManager::CreateEntity(EntityType entity_type, int type)
 		entity = new Item(true, (itemType)type);
 		break;
 	case EntityType::ENEMY:
-		entity = new Enemy(true, (enemyType)type);
+		entity = new Enemy(true);
 		break;
 
 		break;
@@ -96,6 +108,21 @@ void EntityManager::DestroyEntity(Entity* entity)
 			todelete_entity_list.push_back(entity);
 		}
 	}
+	call_delete_entities = true;
+}
+
+void EntityManager::OnlyDrawEntity(Entity* entity)
+{
+	entity->onlyDraw = true;
+	for (auto& item : entity_list)
+	{
+		if (item == entity)
+		{
+			entity_list.remove(entity);
+			drawonly_entity_list.push_back(entity);
+		}
+	}
+	call_destroy_physbody_drawonly_list = true;
 }
 
 void EntityManager::AddEntity(Entity* entity)
@@ -108,13 +135,28 @@ bool EntityManager::Update(float dt)
 	bool ret = true;
 
 	//first of all lets clean destroyed entities
-	for (auto& item : todelete_entity_list)
+	if (call_delete_entities)
 	{
-		ret = item->CleanUp();
-		if (ret == false) return false;
-		RELEASE(item);
+		for (auto& item : todelete_entity_list)
+		{
+			ret = item->CleanUp();
+			if (ret == false) return false;
+			RELEASE(item);
+		}
+		todelete_entity_list.clear();
+		call_delete_entities = false;
 	}
-	todelete_entity_list.clear();
+
+	//then, lets destroy physbodies of onlydrawing entities
+	if (call_destroy_physbody_drawonly_list)
+	{
+		for (auto& item : drawonly_entity_list)
+		{
+			item->DestroyPhysBody();
+		}
+		call_destroy_physbody_drawonly_list = false;
+	}
+
 
 	//if game is paused, no update will be done in the entities
 	if (!app->physics->pause)
@@ -123,15 +165,22 @@ bool EntityManager::Update(float dt)
 		for (auto& item : entity_list)
 		{
 			if (!item->isEnabled) continue;
-			ret = item->Update();
+			ret = item->Update(dt);
 		}
 	}
 
-	//finally lets draw the entities
+	//then lets draw the entities
 	for (auto& item : entity_list)
 	{
 		if (!item->isEnabled) continue;
 		item->Draw();
+	}
+
+	//finally, lets draw drawonly entities
+	for (auto& item : drawonly_entity_list)
+	{
+		if (!item->onlyDraw) continue;
+		item->OnlyDraw();
 	}
 
 	return ret;

@@ -17,7 +17,7 @@ class Textures;
 class Audio;
 //class SceneManager;
 class EntityManager;
-//class Map;
+class Map;
 //class Fonts;
 class Physics;
 //class ModuleFadeToBlack;
@@ -95,7 +95,7 @@ public:
 	Audio* audio = nullptr;
 	//SceneManager* scene_manager = nullptr;
 	EntityManager* entity_manager = nullptr;
-	//Map* map = nullptr;
+	Map* map = nullptr;
 	//Fonts* fonts = nullptr;
 	Physics* physics;
 

@@ -29,6 +29,9 @@ public:
 
 	void DestroyEntity(Entity* entity);
 
+	//this is the correct function to deactivate physbody and make the entity only drawable
+	void OnlyDrawEntity(Entity* entity);
+
 	void AddEntity(Entity* entity);
 
 	void DisableEntities();
@@ -42,7 +45,9 @@ public:
 
 	//list of entities ready to be deleted
 	std::list<Entity*> todelete_entity_list;
-
 	bool call_delete_entities = false;
 
+	//list of entities that are onlyDrawing
+	std::list<Entity*> drawonly_entity_list;
+	bool call_destroy_physbody_drawonly_list = false;
 };

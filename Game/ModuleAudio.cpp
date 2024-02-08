@@ -140,7 +140,6 @@ unsigned int Audio::LoadFx(std::string path)
 		return 0;
 
 	Mix_Chunk* chunk = Mix_LoadWAV(path.c_str());
-
 	if (chunk == NULL)
 	{
 		LOG("Cannot load wav %s. Mix_GetError(): %s", path, Mix_GetError());
