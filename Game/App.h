@@ -16,7 +16,7 @@ class Render;
 class Textures;
 class Audio;
 //class SceneManager;
-//class EntityManager;
+class EntityManager;
 //class Map;
 //class Fonts;
 class Physics;
@@ -94,7 +94,7 @@ public:
 	Textures* tex = nullptr;
 	Audio* audio = nullptr;
 	//SceneManager* scene_manager = nullptr;
-	//EntityManager* entity_manager = nullptr;
+	EntityManager* entity_manager = nullptr;
 	//Map* map = nullptr;
 	//Fonts* fonts = nullptr;
 	Physics* physics;

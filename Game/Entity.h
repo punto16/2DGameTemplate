@@ -76,6 +76,11 @@ public:
 
 	};
 
+	virtual void Draw()
+	{
+
+	};
+
 public:
 
 	std::string name;

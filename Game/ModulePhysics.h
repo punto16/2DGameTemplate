@@ -36,8 +36,7 @@ enum class ColliderType {
 	WALL,
 	WATER,
 	VICTORY,
-	TERRESTREENEMY,
-	FLYINGENEMY,
+	ENEMY,
 	UNKNOWN
 	// ..
 };
