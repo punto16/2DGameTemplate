@@ -10,6 +10,7 @@
 #include "ModulePathfinding.h"
 #include "ModuleEntityManager.h"
 #include "ModuleMap.h"
+#include "ModuleFadeToBlack.h"
 
 //Constructor
 App::App(int argc, char* args[]) : argc(argc), args(args)
@@ -26,7 +27,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	entity_manager = new EntityManager(false);
 	map = new Map(false);
 	//gui_manager = new GuiManager(true);
-	//fade = new ModuleFadeToBlack(true);
+	fade = new ModuleFadeToBlack(true);
 	//fonts = new Fonts(true);
 	pathfinding = new PathFinding(true);
 	//hud = new Hud(true);
@@ -43,13 +44,13 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(map);
 	//AddModule(fonts);
 
-	////hud and gui must be on top of everything
+	//hud and gui must be on top of everything
 	//AddModule(hud);
 	//AddModule(guiManager);
-	////fade last (before render) to affect everything printed before
-	//AddModule(fade);
+	//fade last (before render) to affect everything printed before
+	AddModule(fade);
 
-	//// Render last
+	// Render last
 	AddModule(render);
 }
 

@@ -159,13 +159,16 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Log.h" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleEntityManager.cpp" />
+    <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
+    <ClCompile Include="ModuleMap.cpp" />
     <ClCompile Include="ModulePathfinding.cpp" />
     <ClCompile Include="ModulePhysics.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
@@ -173,20 +176,25 @@
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="PerfTimer.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="App.h" />
     <ClInclude Include="BaseModule.h" />
+    <ClInclude Include="BaseScene.h" />
     <ClInclude Include="Defs.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="GameplayScene.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="ModuleEntityManager.h" />
+    <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleInput.h" />
+    <ClInclude Include="ModuleMap.h" />
     <ClInclude Include="ModulePhysics.h" />
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleTexture.h" />
@@ -195,6 +203,7 @@
     <ClInclude Include="PerfTimer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

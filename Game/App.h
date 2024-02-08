@@ -20,7 +20,7 @@ class EntityManager;
 class Map;
 //class Fonts;
 class Physics;
-//class ModuleFadeToBlack;
+class ModuleFadeToBlack;
 class PathFinding;
 //class GuiManager;
 //class Hud;
@@ -99,7 +99,7 @@ public:
 	//Fonts* fonts = nullptr;
 	Physics* physics;
 
-	//ModuleFadeToBlack* fade = nullptr;
+	ModuleFadeToBlack* fade = nullptr;
 
 	PathFinding* pathfinding = nullptr;
 	//GuiManager* gui_manager = nullptr;
