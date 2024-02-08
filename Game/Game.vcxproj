@@ -163,6 +163,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
+    <ClCompile Include="ModulePathfinding.cpp" />
     <ClCompile Include="ModulePhysics.cpp" />
     <ClCompile Include="ModuleRender.cpp" />
     <ClCompile Include="ModuleTexture.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="ModuleRender.h" />
     <ClInclude Include="ModuleTexture.h" />
     <ClInclude Include="ModuleWindow.h" />
+    <ClInclude Include="ModulePathfinding.h" />
     <ClInclude Include="PerfTimer.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Timer.h" />

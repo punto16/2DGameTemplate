@@ -7,6 +7,7 @@
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
 #include "ModulePhysics.h"
+#include "ModulePathfinding.h"
 
 //Constructor
 App::App(int argc, char* args[]) : argc(argc), args(args)
@@ -25,7 +26,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	//gui_manager = new GuiManager(true);
 	//fade = new ModuleFadeToBlack(true);
 	//fonts = new Fonts(true);
-	//pathfinding = new PathFinding(true);
+	pathfinding = new PathFinding(true);
 	//hud = new Hud(true);
 
 	//order for awake / reverse order on cleanup
@@ -34,7 +35,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(tex);
 	AddModule(audio);
 	AddModule(physics);
-	//AddModule(pathfinding);
+	AddModule(pathfinding);
 	//AddModule(scene_manager);
 	//AddModule(entity_manager);
 	//AddModule(map);

@@ -21,7 +21,7 @@ class Audio;
 //class Fonts;
 class Physics;
 //class ModuleFadeToBlack;
-//class PathFinding;
+class PathFinding;
 //class GuiManager;
 //class Hud;
 
@@ -101,7 +101,7 @@ public:
 
 	//ModuleFadeToBlack* fade = nullptr;
 
-	//PathFinding* pathfinding = nullptr;
+	PathFinding* pathfinding = nullptr;
 	//GuiManager* gui_manager = nullptr;
 	//Hud* hud = nullptr;
 
@@ -114,7 +114,9 @@ private:
 	std::string title;
 	std::string organization;
 
-
+	//List of modules of App
+	//to reverse std::list of pointers -> list.reverse();
+	//to reverse std::list of NON pointers -> list.assign(list.rbegin(), list.rend());
 	std::list<Module*> modules_list;
 
 	// xml_document to store the config file and

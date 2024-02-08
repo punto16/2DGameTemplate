@@ -63,6 +63,9 @@
     <ClCompile Include="ModulePhysics.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="ModulePathfinding.cpp">
+      <Filter>Source Files\Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Source Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePathfinding.h">
+      <Filter>Source Files\Modules</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
