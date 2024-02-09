@@ -69,7 +69,7 @@ SDL_Texture* const Textures::Load(std::string path)
 	}
 	else
 	{
-		LOG("Could not load surface with path: %s. IMG_Load: %s", path, IMG_GetError());
+		LOG("Could not load surface with path: %s. IMG_Load: %s", path.c_str(), IMG_GetError());
 	}
 	return texture;
 }

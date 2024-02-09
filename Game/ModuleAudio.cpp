@@ -104,7 +104,7 @@ bool Audio::PlayMusic(std::string path, float fadeTime)
 
 	if (music == NULL)
 	{
-		LOG("Cannot load music %s. Mix_GetError(): %s\n", path, Mix_GetError());
+		LOG("Cannot load music %s. Mix_GetError(): %s\n", path.c_str(), Mix_GetError());
 		ret = false;
 	}
 	else
@@ -113,7 +113,7 @@ bool Audio::PlayMusic(std::string path, float fadeTime)
 		{
 			if (Mix_FadeInMusic(music, -1, (int)(fadeTime * 1000.0f)) < 0)
 			{
-				LOG("Cannot fade in music %s. Mix_GetError(): %s", path, Mix_GetError());
+				LOG("Cannot fade in music %s. Mix_GetError(): %s", path.c_str(), Mix_GetError());
 				ret = false;
 			}
 		}
@@ -121,13 +121,13 @@ bool Audio::PlayMusic(std::string path, float fadeTime)
 		{
 			if (Mix_PlayMusic(music, -1) < 0)
 			{
-				LOG("Cannot play in music %s. Mix_GetError(): %s", path, Mix_GetError());
+				LOG("Cannot play in music %s. Mix_GetError(): %s", path.c_str(), Mix_GetError());
 				ret = false;
 			}
 		}
 	}
 
-	LOG("Successfully playing %s", path);
+	LOG("Successfully playing %s", path.c_str());
 	return ret;
 }
 
@@ -142,7 +142,7 @@ unsigned int Audio::LoadFx(std::string path)
 	Mix_Chunk* chunk = Mix_LoadWAV(path.c_str());
 	if (chunk == NULL)
 	{
-		LOG("Cannot load wav %s. Mix_GetError(): %s", path, Mix_GetError());
+		LOG("Cannot load wav %s. Mix_GetError(): %s", path.c_str(), Mix_GetError());
 	}
 	else
 	{
