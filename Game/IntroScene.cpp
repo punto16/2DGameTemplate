@@ -55,7 +55,7 @@ bool IntroScene::Update(float dt)
 	switch (intro_state)
 	{
 	case IntroSceneState::BEFORE_PLAY:
-		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->hud->hudstate != hudSTATE::CONFIGSCREEN)
 		{
 			return false;
 		}

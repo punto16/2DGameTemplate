@@ -87,6 +87,10 @@ bool Player::Update(float dt)
 		currentAnimation = &idleAnimation;
 	}
 
+
+	//apply modifications of the frame to physbody
+	pbody->body->SetLinearVelocity(vel);
+
 	//IMPORTANT TO UPDATE THE ANIMATION
 	currentAnimation->Update();
 
@@ -95,6 +99,9 @@ bool Player::Update(float dt)
 
 void Player::Draw()
 {
+	//update from position of physic body to the texture
+	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
+	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 	app->render->DrawTexture(texture, position.x, position.y + 2, &rect);
 }

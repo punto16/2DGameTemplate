@@ -84,6 +84,9 @@ bool Enemy::Update(float dt)
 
 void Enemy::Draw()
 {
+	//update from physbody position to texture position
+	position.x = METERS_TO_PIXELS(ebody->body->GetTransform().p.x) - 16;
+	position.y = METERS_TO_PIXELS(ebody->body->GetTransform().p.y) - 16;
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 	app->render->DrawTexture(texture, position.x, position.y + 2, &rect);
 }
