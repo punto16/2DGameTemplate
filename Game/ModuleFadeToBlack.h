@@ -47,6 +47,6 @@ private:
 	SDL_Rect screenRect;
 
 	// The modules that should be switched after the first step
-	Scene* moduleToEnable = nullptr;
-	Scene* moduleToDisable = nullptr;
+	Scene* toEnable = nullptr;
+	Scene* toDisable = nullptr;
 };

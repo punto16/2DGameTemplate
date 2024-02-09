@@ -445,12 +445,12 @@ bool Map::Load(const char* scene)
     }
     bool ret = true;
     pugi::xml_document mapFileXML;
-    pugi::xml_parse_result result = mapFileXML.load_file(mapFileName[app->sceneManager->currentLevel].c_str());
+    pugi::xml_parse_result result = mapFileXML.load_file(mapFileName[app->scene_manager->currentLevel].c_str());
 
 
     if (result == NULL)
     {
-        LOG("Could not load map xml file %s. pugi error: %s", mapFileName[app->sceneManager->currentLevel].c_str(), result.description());
+        LOG("Could not load map xml file %s. pugi error: %s", mapFileName[app->scene_manager->currentLevel].c_str(), result.description());
         ret = false;
     }
 
@@ -477,7 +477,7 @@ bool Map::Load(const char* scene)
     {
         // LOG all the data loaded iterate all tilesets and LOG everything
 
-        LOG("Successfully parsed map XML file :%s", mapFileName[app->sceneManager->currentLevel].c_str());
+        LOG("Successfully parsed map XML file :%s", mapFileName[app->scene_manager->currentLevel].c_str());
         LOG("width : %d height : %d", mapData.width, mapData.height);
         LOG("tile_width : %d tile_height : %d", mapData.tileWidth, mapData.tileHeight);
 

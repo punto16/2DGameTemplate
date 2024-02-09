@@ -1,10 +1,17 @@
 #pragma once
 #include "BaseModule.h"
+#include "Point.h"
+#include <SDL2/SDL_rect.h>
 #include <string>
 #include <vector>
+#include <list>
+
 
 #define MAX_ARRAY_ELEMENTS 150
 #define MAX_LEVELS 1
+
+struct SDL_Texture;
+struct PhysBody;
 
 // Create a struct to hold information for a TileSet
 // Ignore Terrain Types and Tile Types for now, but we want the image!
@@ -140,7 +147,6 @@ private:
 	// Create and call a private function to load a tileset
 	bool LoadTileSet(pugi::xml_node mapFile);
 
-	// L05
 	bool LoadLayer(pugi::xml_node& node, MapLayer* layer);
 	bool LoadAllLayers(pugi::xml_node mapNode);
 

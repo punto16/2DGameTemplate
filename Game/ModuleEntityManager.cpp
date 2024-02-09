@@ -15,7 +15,30 @@ EntityManager::EntityManager(bool startEnabled) : Module(startEnabled)
 
 // Destructor
 EntityManager::~EntityManager()
-{}
+{
+	//first, reverse list
+	entity_list.reverse();
+	// Release
+	for (auto& item : entity_list)
+	{
+		if (item != NULL)
+		{
+			RELEASE(item);
+		}
+	}
+	entity_list.clear();
+
+	drawonly_entity_list.reverse();
+	// Release
+	for (auto& item : drawonly_entity_list)
+	{
+		if (item != NULL)
+		{
+			RELEASE(item);
+		}
+	}
+	drawonly_entity_list.clear();
+}
 
 // Called before render is available
 bool EntityManager::Awake(pugi::xml_node& config)

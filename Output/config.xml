@@ -4,12 +4,10 @@
 		<organization>Template done by https://github.com/punto16</organization>
 	<frcap value = "16"/>
 	</app>
-
 	<renderer>
 		<vsync value="true"/>
 		<font pathfile="Assets/Fonts/ARCADECLASSIC.TTF" size="25"/>
 	</renderer>
-
 	<window>
 		<resolution width="1024" height="768" scale="2"/>
 		<fullscreen value="false"/>
@@ -17,12 +15,11 @@
 		<resizable value="false"/>
 		<fullscreen_window value="false"/>
 	</window>
-
 	<audio>
 		<music volume="128"/>
 		<fx volume="128"/>
 	</audio>
-	<Hud>
+	<hud>
 		<hudbackground texturepath="Assets/Textures/GUI/guibackground.png"/>
 		<hudbuttonsconfig texturepath="Assets/Textures/GUI/guibuttons_config.png"/>
 		<hudbuttonstitle texturepath="Assets/Textures/GUI/guibuttons_titlescreen.png" />
@@ -30,14 +27,14 @@
 		<collectibles texturepath="Assets/Textures/collectibles.png"/>
 		<clickfx path="Assets/Audio/Fx/clickfx.wav"/>
 		<mousebyfx path="Assets/Audio/Fx/mousebyfx.wav"/>
-	</Hud>
-	<sceneIntro>
+	</hud>
+	<introscene>
 		<screenIntro texturepath="Assets/Textures/screenIntro.png"/>
 		<loseScreen texturepath="Assets/Textures/LoseScreen.png"/>
 		<winScreen texturepath="Assets/Textures/VictoryScreen.png"/>
 		<creditsScreen texturepath="Assets/Textures/credits.png"/>
-	</sceneIntro>
-	<scene>
+	</introscene>
+	<gameplayscene>
 		<music path="Assets/Audio/Music/music.ogg"/>
 		<whiteFont texturepath="Assets/Fonts/sprite_font_white.png"/>
 		<blackFont texturepath="Assets/Fonts/sprite_font_black.png"/>
@@ -47,7 +44,7 @@
 			<!--LEVEL 1 ITEMS-->
 			<!--COINS (itemType 1)-->
 		<item x="332" y="675" level="1" itemType="1" texturepath="Assets/Textures/coins.png"/>
-		<item x="300" y="515" level="1" itemType="1" texturepath="Assets/Textures/coins.png">
+		<item x="300" y="515" level="1" itemType="1" texturepath="Assets/Textures/coins.png"/>
 			 <!--HEARTS (itemType 0)-->
 		<item x="1934" y="140" level="1" itemType="0" texturepath="Assets/Textures/hearts.png"/>
 			<!--CHECKPOINTS (itemType 2)-->
@@ -56,6 +53,5 @@
 			<mapfolder path="Assets/Maps/"/>
 			<mapfile path="Assets/Maps/Level1.tmx"/>
 		</map>
-	</scene>
-
+	</gameplayscene>
 </config>

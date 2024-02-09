@@ -2,6 +2,8 @@
 #include <string>
 #include <pugixml.hpp>
 
+struct GuiControl;
+
 class Module
 {
 public:
@@ -60,6 +62,11 @@ public:
 
 	// SaveState to xml file
 	virtual bool SaveState(pugi::xml_node&)
+	{
+		return true;
+	}
+
+	virtual bool OnGuiMouseClickEvent(GuiControl* control)
 	{
 		return true;
 	}

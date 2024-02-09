@@ -3,6 +3,7 @@
 #include "ModuleRender.h"
 #include "ModuleWindow.h"
 #include "BaseScene.h"
+#include "ModuleSceneManager.h"
 
 ModuleFadeToBlack::ModuleFadeToBlack(bool startEnabled) : Module(startEnabled)
 {
@@ -38,8 +39,14 @@ bool ModuleFadeToBlack::Update(float dt)
 		++frameCount;
 		if (frameCount >= maxFadeFrames)
 		{
-			moduleToDisable->Disable();
-			moduleToEnable->Enable();
+			//toDisable->Disable();
+			//toEnable->Enable();
+			toDisable->CleanUp();
+			toDisable->isEnabled = false;
+			toEnable->Start();
+			toEnable->isEnabled = true;
+			//once new scene is started, new scene is the new current scene
+			app->scene_manager->currentScene = toEnable;
 
 			currentStep = Fade_Step::FROM_BLACK;
 		}
@@ -71,7 +78,7 @@ bool ModuleFadeToBlack::PostUpdate()
 	return true;
 }
 
-bool ModuleFadeToBlack::FadeToBlack(Scene* moduleToDisable, Scene* moduleToEnable, float frames)
+bool ModuleFadeToBlack::FadeToBlack(Scene* toDisable, Scene* toEnable, float frames)
 {
 	bool ret = false;
 
@@ -82,8 +89,8 @@ bool ModuleFadeToBlack::FadeToBlack(Scene* moduleToDisable, Scene* moduleToEnabl
 		frameCount = 0;
 		maxFadeFrames = frames;
 
-		this->moduleToDisable = moduleToDisable;
-		this->moduleToEnable = moduleToEnable;
+		this->toDisable = toDisable;
+		this->toEnable = toEnable;
 
 		ret = true;
 	}

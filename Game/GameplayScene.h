@@ -7,6 +7,9 @@
 #include "Item.h"
 #include <list>
 
+#define CAMERASPEED 5
+#define MAX_TIME 200
+
 class GameplayScene : public Scene
 {
 public:
@@ -41,6 +44,20 @@ public:
 	// list of items in the scene
 	std::list<Item*> item_list;
 
+	Timer PlayTime;
 
+	//window data
+	uint width, height, scale;
 
+	int blackFont = -1;
+	int whiteFont = -1;
+
+	bool fixedCamera = true;
+
+	// Texture to highligh mouse position 
+	SDL_Texture* mouseTileTex;
+	SDL_Texture* originTex;
+
+	// Debug pathfing
+	iPoint origin;
 };

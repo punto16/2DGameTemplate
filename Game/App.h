@@ -15,15 +15,15 @@ class Input;
 class Render;
 class Textures;
 class Audio;
-//class SceneManager;
+class SceneManager;
 class EntityManager;
 class Map;
-//class Fonts;
+class ModuleFonts;
 class Physics;
 class ModuleFadeToBlack;
 class PathFinding;
-//class GuiManager;
-//class Hud;
+class GuiManager;
+class Hud;
 
 class App
 {
@@ -93,17 +93,17 @@ public:
 	Render* render = nullptr;
 	Textures* tex = nullptr;
 	Audio* audio = nullptr;
-	//SceneManager* scene_manager = nullptr;
+	SceneManager* scene_manager = nullptr;
 	EntityManager* entity_manager = nullptr;
 	Map* map = nullptr;
-	//Fonts* fonts = nullptr;
+	ModuleFonts* fonts = nullptr;
 	Physics* physics;
 
 	ModuleFadeToBlack* fade = nullptr;
 
 	PathFinding* pathfinding = nullptr;
-	//GuiManager* gui_manager = nullptr;
-	//Hud* hud = nullptr;
+	GuiManager* gui_manager = nullptr;
+	Hud* hud = nullptr;
 
 	bool frcap = true;
 

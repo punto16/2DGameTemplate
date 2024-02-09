@@ -5,7 +5,7 @@
 #include "ModuleInput.h"
 #include "ModulePhysics.h"
 
-Player::Player(bool startEnabled) : Entity(EntityType::PLAYER)
+Player::Player(bool startEnabled) : Entity(startEnabled, EntityType::PLAYER)
 {
 	name = "player";
 

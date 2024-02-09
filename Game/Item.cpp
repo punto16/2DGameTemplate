@@ -4,7 +4,7 @@
 #include "ModuleAudio.h"
 #include "ModuleEntityManager.h"
 
-Item::Item(bool startEnabled, itemType itemtype) : Entity(EntityType::ITEM)
+Item::Item(bool startEnabled, itemType itemtype) : Entity(startEnabled, EntityType::ITEM)
 {
 	name = "item";
 	this->itemtype = itemtype;

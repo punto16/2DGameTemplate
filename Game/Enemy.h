@@ -60,6 +60,11 @@ public:
 	//is enemy in air?
 	bool jumping;
 
+	//target point of enemy
+	//gameplayscene uses this to tell enemy whats the shortest path to player when enemy is on AGRESsIVE PATH
+	//so, in agressive path, enemy should try to reach objective position
+	iPoint objective;
+
 	//is enemy alive?
 	bool alive;
 

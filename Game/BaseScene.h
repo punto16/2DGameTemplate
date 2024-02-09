@@ -6,8 +6,11 @@
 class Scene
 {
 public:
+	Scene(bool start_enabled = true) : isEnabled(start_enabled)
+	{
 
-	Scene() : isEnabled(true) {}
+	}
+
 
 	virtual bool Awake(pugi::xml_node& config)
 	{

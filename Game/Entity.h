@@ -18,7 +18,8 @@ class Entity
 {
 public:
 
-	Entity(EntityType type) : type(type), isEnabled(true) {}
+	Entity(bool startEnabled = true, EntityType type = EntityType::ENEMY) : type(type), isEnabled(startEnabled) {}
+
 
 	virtual bool Awake()
 	{

@@ -11,6 +11,10 @@
 #include "ModuleEntityManager.h"
 #include "ModuleMap.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleFonts.h"
+#include "ModuleSceneManager.h"
+#include "ModuleHud.h"
+#include "ModuleGuiManager.h"
 
 //Constructor
 App::App(int argc, char* args[]) : argc(argc), args(args)
@@ -23,14 +27,14 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	tex = new Textures(true);
 	audio = new Audio(true);
 	physics = new Physics(true);
-	//scene_manager = new SceneManager(true);
+	scene_manager = new SceneManager(true);
 	entity_manager = new EntityManager(false);
 	map = new Map(false);
-	//gui_manager = new GuiManager(true);
+	gui_manager = new GuiManager(true);
 	fade = new ModuleFadeToBlack(true);
-	//fonts = new Fonts(true);
+	fonts = new ModuleFonts(true);
 	pathfinding = new PathFinding(true);
-	//hud = new Hud(true);
+	hud = new Hud(true);
 
 	//order for awake / reverse order on cleanup
 	AddModule(window);
@@ -39,14 +43,14 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(audio);
 	AddModule(physics);
 	AddModule(pathfinding);
-	//AddModule(scene_manager);
+	AddModule(scene_manager);
 	AddModule(entity_manager);
 	AddModule(map);
-	//AddModule(fonts);
+	AddModule(fonts);
 
 	//hud and gui must be on top of everything
-	//AddModule(hud);
-	//AddModule(guiManager);
+	AddModule(hud);
+	AddModule(gui_manager);
 	//fade last (before render) to affect everything printed before
 	AddModule(fade);
 
@@ -406,7 +410,7 @@ pugi::xml_node App::LoadConfigFileToVar()
 		ret = configFile.child("config");
 	}
 	else {
-		LOG("Error in App::LoadConfig(): %s", parseResult.description());
+		LOG("Error in App::LoadConfigFileToVar(): %s", parseResult.description());
 	}
 
 	return ret;

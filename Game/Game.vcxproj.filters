@@ -28,6 +28,9 @@
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{9b98b6e4-d17b-44af-aa74-cbef85a1d59b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Modules\GUI">
+      <UniqueIdentifier>{5e71bbb1-e57c-44ef-8f12-b9830c78aea4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp">
@@ -87,11 +90,32 @@
     <ClCompile Include="ModuleFadeToBlack.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
+    <ClCompile Include="ModuleSceneManager.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="GameplayScene.cpp">
       <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFonts.cpp">
+      <Filter>Source Files\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleHud.cpp">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleGuiManager.cpp">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiButton.cpp">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiCheckBox.cpp">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiSlider.cpp">
+      <Filter>Source Files\Modules\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,7 +185,7 @@
     <ClInclude Include="ModuleFadeToBlack.h">
       <Filter>Source Files\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManager.h">
+    <ClInclude Include="ModuleSceneManager.h">
       <Filter>Source Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="BaseScene.h">
@@ -169,6 +193,30 @@
     </ClInclude>
     <ClInclude Include="GameplayScene.h">
       <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFonts.h">
+      <Filter>Source Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroScene.h">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleHud.h">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleGuiManager.h">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiControl.h">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiButton.h">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiCheckBox.h">
+      <Filter>Source Files\Modules\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiSlider.h">
+      <Filter>Source Files\Modules\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

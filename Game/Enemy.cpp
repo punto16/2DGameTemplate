@@ -5,7 +5,7 @@
 #include "ModuleInput.h"
 #include "ModulePhysics.h"
 
-Enemy::Enemy(bool startEnabled) : Entity(EntityType::ENEMY)
+Enemy::Enemy(bool startEnabled) : Entity(startEnabled, EntityType::ENEMY)
 {
 	name = "enemy";
 }
