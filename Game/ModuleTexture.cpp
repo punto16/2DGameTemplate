@@ -1,5 +1,6 @@
 #include "App.h"
 #include "ModuleTexture.h"
+#include "ModuleRender.h"
 
 #include <SDL2/SDL_image.h>
 
@@ -45,7 +46,10 @@ bool Textures::CleanUp()
 
 	for (auto& item : texture_list)
 	{
-		SDL_DestroyTexture(item);
+		if (item != nullptr)
+		{
+			SDL_DestroyTexture(item);
+		}
 	}
 	texture_list.clear();
 	IMG_Quit();
@@ -72,7 +76,7 @@ SDL_Texture* const Textures::Load(std::string path)
 
 SDL_Texture* const Textures::LoadSurface(SDL_Surface* surface)
 {
-	SDL_Texture* texture = NULL;/*SDL_CreateTextureFromSurface(app->render->renderer, surface);*/
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(app->render->renderer, surface);
 
 	if (texture == NULL)
 	{
@@ -92,11 +96,15 @@ bool Textures::UnLoad(SDL_Texture* texture)
 	{
 		if (item == texture)
 		{
-			SDL_DestroyTexture(item);
+			if (item != NULL)
+			{
+				SDL_DestroyTexture(item);
+			}
 			texture_list.remove(item);
 			return true;
 		}
 	}
+
 	return false;
 }
 

@@ -88,8 +88,9 @@ PhysBody* Physics::CreateRectangle(int x, int y, int width, int height, bodyType
 
 	b->CreateFixture(&fixture);
 
-	PhysBody* pbody = (PhysBody*)b->GetUserData().pointer;
+	PhysBody* pbody = new PhysBody();
 	pbody->body = b;
+	b->GetUserData().pointer = (uintptr_t)pbody;
 	pbody->width = width * 0.5f;
 	pbody->height = height * 0.5f;
 
@@ -121,8 +122,9 @@ PhysBody* Physics::CreateCircle(int x, int y, int radious, bodyType type, bool i
 
 	b->CreateFixture(&fixture);
 
-	PhysBody* pbody = (PhysBody*)b->GetUserData().pointer;
+	PhysBody* pbody = new PhysBody();
 	pbody->body = b;
+	b->GetUserData().pointer = (uintptr_t)pbody;
 	pbody->width = radious * 0.5f;
 	pbody->height = radious * 0.5f;
 
@@ -153,8 +155,10 @@ PhysBody* Physics::CreateRectangleSensor(int x, int y, int width, int height, bo
 
 	b->CreateFixture(&fixture);
 
-	PhysBody* pbody = (PhysBody*)b->GetUserData().pointer;
+
+	PhysBody* pbody = new PhysBody();
 	pbody->body = b;
+	b->GetUserData().pointer = (uintptr_t)pbody;
 	pbody->width = width;
 	pbody->height = height;
 
@@ -196,7 +200,9 @@ PhysBody* Physics::CreateChain(int x, int y, int* points, int size, bodyType typ
 
 	delete p;
 
-	PhysBody* pbody = (PhysBody*)b->GetUserData().pointer;
+	PhysBody* pbody = new PhysBody();
+	pbody->body = b;
+	b->GetUserData().pointer = (uintptr_t)pbody;
 	pbody->body = b;
 	pbody->width = pbody->height = 0;
 

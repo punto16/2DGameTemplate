@@ -42,6 +42,8 @@ enum class ColliderType {
 };
 
 // Small class to return to other modules to track position and rotation of physics bodies
+//WARNING: new method to setuserdata:   b->GetUserData().pointer = (uintptr_t)pbody;
+//THEN: method to get that info in other side:  b2BodyUserData& data = b->GetUserData(); -> PhysBody* pbody = reinterpret_cast<PhysBody*>(data.pointer);
 class PhysBody
 {
 public:
