@@ -39,36 +39,36 @@ bool SceneManager::Start()
 {
 	currentScene = introScene;
 
-	currentScene->Start();
+	bool ret = currentScene->Start();
 
-	return true;
+	return ret;
 }
 
 bool SceneManager::PreUpdate()
 {
-	currentScene->PreUpdate();
+	bool ret = currentScene->PreUpdate();
 
-	return true;
+	return ret;
 }
 
 bool SceneManager::Update(float dt)
 {
-	currentScene->Update(dt);
+	bool ret = currentScene->Update(dt);
 
-	return true;
+	return ret;
 }
 
 bool SceneManager::PostUpdate()
 {
-	currentScene->PostUpdate();
+	bool ret = currentScene->PostUpdate();
 
-	return true;
+	return ret;
 }
 
 bool SceneManager::CleanUp()
 {
 	LOG("Freeing SceneManager");
-	currentScene->CleanUp();
+	bool ret = currentScene->CleanUp();
 
-	return true;
+	return ret;
 }

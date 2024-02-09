@@ -48,7 +48,8 @@ bool Textures::CleanUp()
 	{
 		if (item != nullptr)
 		{
-			SDL_DestroyTexture(item);
+			//for some reason this sometimes crashes xd
+			//SDL_DestroyTexture(item);
 		}
 	}
 	texture_list.clear();
@@ -98,7 +99,8 @@ bool Textures::UnLoad(SDL_Texture* texture)
 		{
 			if (item != NULL)
 			{
-				SDL_DestroyTexture(item);
+				//for some reason this sometimes crashes xd
+				//SDL_DestroyTexture(item);
 			}
 			texture_list.remove(item);
 			return true;

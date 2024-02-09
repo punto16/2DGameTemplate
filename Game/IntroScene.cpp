@@ -1,6 +1,8 @@
 #include "App.h"
 #include "IntroScene.h"
 #include "ModuleTexture.h"
+#include "ModuleFadeToBlack.h"
+#include "ModuleHud.h"
 
 IntroScene::IntroScene(bool startEnabled, IntroSceneState intro_state) : Scene(startEnabled)
 {
@@ -50,6 +52,45 @@ bool IntroScene::PreUpdate()
 
 bool IntroScene::Update(float dt)
 {
+	switch (intro_state)
+	{
+	case IntroSceneState::BEFORE_PLAY:
+		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		{
+			return false;
+		}
+		break;
+	case IntroSceneState::CREDITS:
+		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		{
+			app->hud->prevstate = app->hud->hudstate;
+			app->hud->hudstate = hudSTATE::TITLESCREEN;
+			intro_state = IntroSceneState::BEFORE_PLAY;
+			app->fade->FadeToBlack(this, this);
+		}
+		break;
+	case IntroSceneState::WIN:
+		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		{
+			app->hud->prevstate = app->hud->hudstate;
+			app->hud->hudstate = hudSTATE::TITLESCREEN;
+			intro_state = IntroSceneState::BEFORE_PLAY;
+			app->fade->FadeToBlack(this, this);
+		}
+		break;
+	case IntroSceneState::LOSE:
+		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		{
+			app->hud->prevstate = app->hud->hudstate;
+			app->hud->hudstate = hudSTATE::TITLESCREEN;
+			intro_state = IntroSceneState::BEFORE_PLAY;
+			app->fade->FadeToBlack(this, this);
+		}
+		break;
+	default:
+		break;
+	}
+
 	app->render->DrawTexture(mainImage, 0, 0, 0, 1.0f, 0.0, 2147483647, 2147483647, true);
 
 	return true;

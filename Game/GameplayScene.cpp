@@ -30,6 +30,9 @@ bool GameplayScene::Awake(pugi::xml_node& config)
 
 bool GameplayScene::Start()
 {
+	app->hud->prevstate = app->hud->hudstate;
+	app->hud->hudstate = hudSTATE::CLOSED;
+
 	//make sure game isnt paused
 	app->physics->pause = false;
 
@@ -129,8 +132,6 @@ bool GameplayScene::Start()
 	scale = app->window->GetScale();
 	app->window->GetWindowSize(width, height);
 
-	//app->hud->hudstate = hudSTATE::CLOSED;
-
 	PlayTime.Start();
 
 	return true;
@@ -166,7 +167,8 @@ bool GameplayScene::Preupdate()
 
 bool GameplayScene::Update(float dt)
 {
-	//movement of camera	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+	//movement of camera	
+	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{
 		app->render->camera.y += CAMERASPEED;
 		fixedCamera = false;
@@ -261,6 +263,7 @@ bool GameplayScene::Update(float dt)
 		app->frcap = !app->frcap;
 	}
 
+	app->map->Draw();
 
 	return true;
 }
@@ -268,7 +271,6 @@ bool GameplayScene::Update(float dt)
 bool GameplayScene::PostUpdate()
 {
 	//i must put map drawing here because there will be more debug drawing on top of it
-	app->map->Draw();
 
 	//This is pathfinding, enemy will try to reach shortest path to player if enemy is on AGRESSIVEPATH
 	for (auto& item : enemy_list)
@@ -297,6 +299,38 @@ bool GameplayScene::PostUpdate()
 			// Debug pathfinding
 			iPoint originScreen = app->map->MapToWorld(origin.x, origin.y);
 			if (app->physics->debug) app->render->DrawTexture(originTex, originScreen.x, originScreen.y);
+		}
+	}
+
+	if (app->physics->debug)
+	{
+		PhysBody* ebody;
+		PhysBody* pbody = player->getPbody();
+
+		for (auto& enemiesItem : enemy_list)
+		{
+			ebody = enemiesItem->getEbody();
+
+			if (ebody->body->IsEnabled())
+			{
+
+
+				//ray between terrestre enemy and player
+				app->render->DrawLine(METERS_TO_PIXELS(ebody->body->GetPosition().x),
+					METERS_TO_PIXELS(ebody->body->GetPosition().y),
+					METERS_TO_PIXELS(pbody->body->GetPosition().x),
+					METERS_TO_PIXELS(pbody->body->GetPosition().y),
+					255, 0, 0);//red
+			}
+		}
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+	{
+		if (app->hud->hudstate != hudSTATE::PAUSESCREEN)
+		{
+			app->physics->Pause();
+			app->hud->hudstate = hudSTATE::PAUSESCREEN;
 		}
 	}
 

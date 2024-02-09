@@ -83,14 +83,17 @@ bool Hud::Update(float dt)
 {
 	if (hudstate == hudSTATE::TITLESCREEN)
 	{
-		if (wait1frame)
-		{
-			wait1frame = false;
-		}
-		else if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		{
-			return false;
-		}
+		//if (app->scene_manager->introScene->intro_state == IntroSceneState::BEFORE_PLAY)
+		//{
+		//	if (wait1frame)
+		//	{
+		//		wait1frame = false;
+		//	}
+		//	else if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		//	{
+		//		return false;
+		//	}
+		//}
 
 		for (auto& control : app->gui_manager->guiControlsList)
 		{
@@ -198,35 +201,21 @@ bool Hud::Update(float dt)
 		int scalable = 1;
 		app->render->DrawTexture(collectibles, (15 - app->render->camera.x), (15 - app->render->camera.y), &heartRect, 1.0f, 0.0, 2147483647, 2147483647, true);
 		app->render->DrawTexture(collectibles, (100 - app->render->camera.x), (15 - app->render->camera.y), &coinRect, 1.0f, 0.0, 2147483647, 2147483647, true);
-		std::string lives = std::to_string(app->scene_manager->lives);
-		std::string x = "x ";
-		std::string xlives = x + lives;
-		//string to const char*
-		const char* xlives2 = xlives.c_str();
-		//end of string to const char*
-		app->render->DrawText(xlives2, (55), (15), 33, 27, { 0,0,0,255 });
-		std::string coins = std::to_string(app->scene_manager->coins);
-		std::string xcoins = x + coins;
-		//string to const char*
-		const char* xcoins2 = xcoins.c_str();
-		//end of string to const char*
-		app->render->DrawText(xcoins2, (140), (15), 33, 27, { 0,0,0,255 });
+		//lives
+		std::string lives = "x " + std::to_string(app->scene_manager->lives);
+		app->render->DrawText(lives.c_str(), (55), (15), 33, 27, {0,0,0,255});
+		//coins
+		std::string coins = "x " + std::to_string(app->scene_manager->coins);
+		app->render->DrawText(coins.c_str(), (140), (15), 33, 27, {0,0,0,255});
 		//time
 		timeLeft = MAX_TIME - app->scene_manager->gameplayScene->PlayTime.ReadSec();
-		std::string timeLeft2 = std::to_string(timeLeft);
-		std::string timeText = "Time     remaining     is     ";
-		std::string xtimeLeft = timeText + timeLeft2;
-		//string to const char*
-		const char* xtimeLeft2 = xtimeLeft.c_str();
-		//end of string to const char*
-		app->render->DrawText(xtimeLeft2, (700), (15), 150, 45, { 0,0,0,255 });
+		std::string timeText = "Time     remaining     is     " + std::to_string(timeLeft);
+		app->render->DrawText(timeText.c_str(), (700), (15), 150, 45, {0,0,0,255});
 
 		//score calculator and printer
 		app->scene_manager->score = (app->scene_manager->lives * 500 + app->scene_manager->coins * 50 + app->scene_manager->killedEnemies * 200) - app->scene_manager->gameplayScene->PlayTime.ReadSec() * 2;
-		std::string score2 = std::to_string(app->scene_manager->score);
-		std::string scoreText = "SCORE     is     ";
-		std::string xscoreText = scoreText + score2;
-		app->render->DrawText(xscoreText.c_str(), (900), (15), 100, 45, {0,0,0,255});
+		std::string scoreText = "SCORE     is     " + std::to_string(app->scene_manager->score);
+		app->render->DrawText(scoreText.c_str(), (900), (15), 100, 45, {0,0,0,255});
 	}
 
 	return true;
@@ -294,7 +283,7 @@ bool Hud::OnGuiMouseClickEvent(GuiControl* control)
 		break;
 	case 8:
 		LOG("Button 8 click");
-		app->fade->FadeToBlack((Scene*)app->scene_manager->gameplayScene, (Scene*)app->scene_manager->introScene);
+		app->fade->FadeToBlack((Scene*)app->scene_manager->gameplayScene, (Scene*)app->scene_manager->gameplayScene);
 		app->hud->prevstate = app->hud->hudstate;
 		break;
 	case 9:
